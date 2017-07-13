@@ -1,0 +1,1 @@
+This folder contains the zip file and its extracted contents as an example for challenge creation using zip file.
