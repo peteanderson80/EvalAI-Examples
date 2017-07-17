@@ -1,6 +1,7 @@
 # VQA Challenge
 A challenge host team can create a chalenge using the **zip file** and once the challenge is approved by admin, then it can be hosted on EvalAI.
 This folder contains the **vqa challenge zip file** as an example and its extracted contents.
+For creating a challenge, a challenge host team should upload only the zip file.
 
 ## Directory Structure
 * vqa_challenge
