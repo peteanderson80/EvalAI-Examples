@@ -1,0 +1,125 @@
+title: Room-to-Room (R2R) Vision & Language Navigation 2018
+short_description: R2R is the first benchmark dataset for visually-grounded natural language navigation in real buildings. This open-ended challenge requires autonomous agents to follow human-generated navigation instructions while moving through Matterport reconstructions of previously unseen buildings.
+description: description.html
+evaluation_details: evaluation_details.html
+terms_and_conditions: terms_and_conditions.html
+image : r2r.png
+submission_guidelines: submission_guidelines.html
+evaluation_script: evaluation_script.zip
+start_date: 2018-03-13 00:00:00
+end_date: 2099-12-31 00:00:00
+published: False
+
+leaderboard:
+  - id: 1
+    schema: {"labels": ["trajectory (m)", "error (m)", "oracle success (%)", "success (%)"], "default_order_by": "success (%)"}
+
+challenge_phases:
+  - id: 1
+    name: val-seen
+    description: challenge_phase_1_description.html
+    leaderboard_public: False
+    is_public: True
+    start_date: 2018-03-13 00:00:00
+    end_date: 2099-12-31 00:00:00
+    test_annotation_file: test_annotation.txt
+    codename: val-seen
+    max_submissions_per_day: 10
+    max_submissions: 9999
+  - id: 2
+    name: val-unseen
+    description: challenge_phase_2_description.html
+    leaderboard_public: False
+    is_public: True
+    start_date: 2018-03-13 00:00:00
+    end_date: 2099-12-31 00:00:00
+    test_annotation_file: test_annotation.txt
+    codename: val-unseen
+    max_submissions_per_day: 10
+    max_submissions: 9999
+  - id: 3
+    name: test
+    description: challenge_phase_3_description.html
+    leaderboard_public: True
+    is_public: True
+    start_date: 2018-03-13 00:00:00
+    end_date: 2099-12-31 00:00:00
+    test_annotation_file: test_annotation.txt
+    codename: test
+    max_submissions_per_day: 1
+    max_submissions: 5
+
+
+dataset_splits:
+  - id: 1
+    name: split1
+    codename: split1
+  - id: 2
+    name: split2
+    codename: split2
+  - id: 3
+    name: split3
+    codename: split3
+  - id: 4
+    name: split4
+    codename: split4
+  - id: 5
+    name: split5
+    codename: split5
+  - id: 6
+    name: split6
+    codename: split6 
+
+challenge_phase_splits:
+  - challenge_phase_id: 1
+    leaderboard_id: 1
+    dataset_split_id: 1
+    visibility: 2
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 1
+    visibility: 1
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 2
+    visibility: 3
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 3
+    visibility: 1
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 4
+    visibility: 1
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 5
+    visibility: 1
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 6
+    visibility: 1
+  - challenge_phase_id: 3
+    leaderboard_id: 1
+    dataset_split_id: 1
+    visibility: 1
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 2
+    visibility: 1
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 3
+    visibility: 1
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 4
+    visibility: 1
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 5
+    visibility: 1
+  - challenge_phase_id: 2
+    leaderboard_id: 1
+    dataset_split_id: 6
+    visibility: 1
