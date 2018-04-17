@@ -1,5 +1,5 @@
-title: Room-to-Room (R2R) Vision & Language Navigation 2018
-short_description: R2R is the first benchmark dataset for visually-grounded natural language navigation in real buildings. This open-ended challenge requires autonomous agents to follow human-generated navigation instructions while moving through Matterport reconstructions of previously unseen buildings.
+title: Vision and Language Navigation
+short_description: The first benchmark dataset for visually-grounded natural language navigation in real buildings.
 description: description.html
 evaluation_details: evaluation_details.html
 terms_and_conditions: terms_and_conditions.html
