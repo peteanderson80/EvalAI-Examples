@@ -2,7 +2,7 @@
 
 <p><strong>Trajectory Length (length):</strong> The agent's mean trajectory length in metres. This is not a figure of merit, however it provides some context regarding the amount of exploring that an agent is undertaking (relative to the mean trajectory length of the shortest path oracle, for example).</p>
 
-<p><strong>Navigation Error (error):</strong> The agent's mean navigation error in metres. We define navigation error as the shortest path distance in the simulator's navigation graph between the agent’s final position (i.e., disregarding heading and elevation) and the goal location. Note that we do not evaluate the agent’s entire trajectory as many instructions describe the location of the goal without specifying a particular path that must be taken to reach it.</p>
+<p><strong>Navigation Error (error):</strong> The agent's mean navigation error in metres. We define navigation error as the shortest path distance in the simulator's navigation graph between the agent’s final position (i.e., disregarding heading and elevation) and the goal location. The agent is expected to identify the goal location and stop as close as possible to it. We do not evaluate the agent’s entire trajectory as many instructions describe the location of the goal without specifying a particular path that must be taken to reach it.</p>
 
 <p><strong>Success Rate (success):</strong> The agent's mean success rate in terms of reaching the goal location. We consider an episode to be a success if the agent's navigation error is less than 3m. This threshold allows for a reasonable margin of error in the context of an imprecise natural language navigation instruction, yet it is comfortably below the minimum starting error in the R2R dataset (which is 5m).  </p>
 

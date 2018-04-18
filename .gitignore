@@ -1,3 +1,5 @@
 *.json
 *~
 vqa_challenge
+*.pyc
+*.zip

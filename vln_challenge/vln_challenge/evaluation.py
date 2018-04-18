@@ -18,9 +18,11 @@ def load_nav_graphs(scans):
           + (pose1['pose'][7]-pose2['pose'][7])**2\
           + (pose1['pose'][11]-pose2['pose'][11])**2)**0.5
 
+    # Get path of current file
+    current_dir_path = dir_path = os.path.dirname(os.path.realpath(__file__))
     graphs = {}
     for scan in scans:
-        with open('connectivity/%s_connectivity.json' % scan) as f:
+        with open('%s/connectivity/%s_connectivity.json' % (current_dir_path,scan)) as f:
             G = nx.Graph()
             positions = {}
             data = json.load(f)
@@ -50,7 +52,7 @@ class Evaluation(object):
             for item in json.load(f):
                 self.gt[item['path_id']] = item
                 self.scans.append(item['scan'])
-                self.instr_ids += ['%d_%d' % (item['path_id'],i) for i in range(len(item['instructions'])]
+                self.instr_ids += ['%d_%d' % (item['path_id'],i) for i in range(len(item['instructions']))]
         self.scans = set(self.scans)
         self.instr_ids = set(self.instr_ids)
         self.graphs = load_nav_graphs(self.scans)
