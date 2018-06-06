@@ -12,7 +12,7 @@ published: False
 
 leaderboard:
   - id: 1
-    schema: {"labels": ["length", "error", "oracle success", "success"], "default_order_by": "success"}
+    schema: {"labels": ["length", "error", "oracle success", "success", "spl"], "default_order_by": "spl"}
 
 challenge_phases:
   - id: 1
