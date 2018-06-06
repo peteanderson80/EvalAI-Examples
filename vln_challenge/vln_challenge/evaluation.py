@@ -84,9 +84,18 @@ class Evaluation(object):
         distance = 0 # Work out the length of the path in meters
         prev = path[0]
         for curr in path[1:]:
+            if prev[0] != curr[0]:
+                try:
+                    self.graphs[gt['scan']][prev[0]][curr[0]]
+                except KeyError as err:
+                    print 'Error: The provided trajectory moves from %s to %s but the navigation graph contains no '\
+                        'edge between these viewpoints. Please ensure the provided navigation trajectories '\
+                        'are valid, so that trajectory length can be accurately calculated.' % (prev[0], curr[0])
+                    raise
             distance += self.distances[gt['scan']][prev[0]][curr[0]]
             prev = curr
         self.scores['trajectory_lengths'].append(distance)
+        self.scores['shortest_path_lengths'].append(self.distances[gt['scan']][start][goal])
 
     def score(self, output_file):
         ''' Evaluate each agent trajectory based on how close it got to the goal location '''
@@ -103,6 +112,14 @@ class Evaluation(object):
         
         num_successes = len([i for i in self.scores['nav_errors'] if i < self.error_margin])
         oracle_successes = len([i for i in self.scores['oracle_errors'] if i < self.error_margin])
+        
+        spls = []
+        for err,length,sp in zip(self.scores['nav_errors'],self.scores['trajectory_lengths'],self.scores['shortest_path_lengths']):
+            if err < self.error_margin:
+                spls.append(sp/max(length,sp))
+            else:
+                spls.append(0)
+        
         output = {}
         output['result'] = [
             {
@@ -110,10 +127,12 @@ class Evaluation(object):
                     'length': np.average(self.scores['trajectory_lengths']),
                     'error': np.average(self.scores['nav_errors']),
                     'oracle success': float(oracle_successes)/float(len(self.scores['oracle_errors'])),
-                    'success': float(num_successes)/float(len(self.scores['nav_errors']))
+                    'success': float(num_successes)/float(len(self.scores['nav_errors'])),
+                    'spl': np.average(spls)
                 }
             },
         ]
+        assert output['result'][0][self.split]['spl'] <= output['result'][0][self.split]['success']
         return output
 
 
