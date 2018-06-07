@@ -107,7 +107,7 @@ class Evaluation(object):
                 if item['instr_id'] in instr_ids:
                     instr_ids.remove(item['instr_id'])
                     self._score_item(item['instr_id'], item['trajectory'])
-        assert len(instr_ids) == 0
+        assert len(instr_ids) == 0, 'Trajectories not provided for %d instruction ids: %s' % (len(instr_ids),instr_ids)
         assert len(self.scores['nav_errors']) == len(self.instr_ids)
         
         num_successes = len([i for i in self.scores['nav_errors'] if i < self.error_margin])
