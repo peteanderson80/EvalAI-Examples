@@ -36,13 +36,17 @@
 ]
 </code></pre></div>
 
-<p><strong>Challenge Guidelines:</strong> It is permissable to train on all training and validation data when making a test server submission. However, participants must ensure that each of their submitted test set trajectories is obtained from a <i>single independent evaluation run</i>. For example, it is not permissable to:</p>
+<p><strong>Challenge Guidelines:</strong> It is permissible to train on all training and validation data when making a test server submission. However, participants must ensure that each of their submitted test set trajectories is obtained from a <i>single independent evaluation run</i>, and the agent's trajectory is accurately accounted for. For example, if your agent:
 <ul>
-  <li>Run multiple trials for each instruction and pick the highest confidence trajectory to submit.</li>
-  <li>Explore or map the test environments before starting.</li>
-  <li>Identify multiple test instructions that refer to the same goal location and solve them together.</li>
+  <li>Runs multiple trials for each instruction, and then picks the highest confidence trajectory to submit, or</li>
+  <li>Explores or maps the test environments before starting</li>
 </ul>
-<p>If participants are in any doubt about whether their procedure complies with the challenge guidelines, they are encouraged to contact the organizers. If there is sufficient interest in an alternative evaluation scenario, we will create a separate leaderboard.</p>
+then the motion associated with these strategies must be included in the submitted trajectories. It is not permissible to:</p>
+<ul>
+  <li>Decode the agent's actions using beam search, or</li>
+  <li>Identify multiple test instructions that refer to the same goal location and solve them together</li>
+</ul>
+as these strategies violate the assumptions of a single agent / independent evaluations. If participants are in any doubt about whether their procedure complies with the challenge guidelines, they are encouraged to contact the organizers. If there is sufficient interest in an alternative evaluation scenario, we will create a separate leaderboard.</p>
 
 <p><strong>Reporting Results:</strong> Papers reporting results on the R2R dataset should report test set evaluation metrics, and compare with the test leaderboard. Please limit the number of entries to the test evaluation server to a reasonable number, e.g., one entry per paper. To avoid overfitting, the number of submissions per user is limited to 1 upload per day and a maximum of 5 submissions per user. As with other challenges, it is not acceptable to create multiple accounts for a single project to circumvent this limit. The exception to this is if a group publishes two papers describing unrelated methods, in this case both sets of results can be submitted for evaluation. </p>
 
